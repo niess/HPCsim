@@ -124,12 +124,15 @@ typedef void (TRunClear)(void * simContext);
 typedef void (TSimulationUnload)(void * simContext);
 
 #define ID_FIELD_SIZE (6 * sizeof(double))
+#ifndef RESULT_FIELD_SIZE
+#define RESULT_FIELD_SIZE 0x800
+#endif
 
 typedef struct TResult
 {
     uint8_t fId[ID_FIELD_SIZE];
     uint32_t fResultLength;
-    uint8_t fResult[0x800];
+    uint8_t fResult[RESULT_FIELD_SIZE];
 } TResult;
 
 /**

@@ -16,6 +16,9 @@ elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "Intel")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fp-model precise -fp-model source -fimf-precision=high")
 endif()
 
+option(RESULT_FIELD_SIZE 0x800)
+add_definitions(-DRESULT_FIELD_SIZE=${RESULT_FIELD_SIZE})
+
 check_include_files(stdint.h HAVE_STDINT_H)
 if (HAVE_STDINT_H)
     add_definitions(-DHAVE_STDINT_H)
